@@ -9,7 +9,7 @@ st.title('Number Extractor')
 
 if st.button('Reset extractor'):
     table_initial = np.arange(1,91)
-    with open('outfile', 'wb') as fp:
+    with open('D:\Documenti D\Codes\Bingo-Numbers-Extractor\outfile', 'wb') as fp:
         pickle.dump(table_initial, fp)
 
 
@@ -37,7 +37,7 @@ table_numbers = pd.DataFrame(np.arange(1,91).reshape(-1,10))
 table_numbers.columns = list(['A','B','C','D','E', 'F', 'G', 'H','I','L'])
 
 
-with open ('outfile', 'rb') as fp:
+with open ('D:\Documenti D\Codes\Bingo-Numbers-Extractor\outfile', 'rb') as fp:
     possible_numbers = pickle.load(fp)
 
 
@@ -57,7 +57,7 @@ st.table(table_numbers.style.apply(style_specific_cell, axis=None))
 if st.button('Extract Number'):
 
     possible_numbers, extr = number_extractor(possible_numbers)
-    with open('outfile', 'wb') as fp:
+    with open('D:\Documenti D\Codes\Bingo-Numbers-Extractor\outfile', 'wb') as fp:
       pickle.dump(possible_numbers, fp)
 
     html_string = "<h3>"+ str(extr) + "</h3>"
